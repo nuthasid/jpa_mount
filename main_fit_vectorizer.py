@@ -14,6 +14,7 @@ import src.tokenizer as tt
 from src.tfidf_tokenize import tfidf_tokenize as tfidf
 import tltk
 from multiprocessing import Pool
+from tqdm import tqdm
 
 
 def wrapper_tokenize_desc(text):
@@ -56,6 +57,7 @@ if __name__ == '__main__':
 
     import sys
     import pickle
+    from tqdm import tqdm
 
     # declare arguments
     # data20180620_test.json
@@ -87,9 +89,18 @@ if __name__ == '__main__':
     # multiprocessing : tokenize job description docs
     print('Fitting job description vectorizer')
     print('    Tokenizing job description')
+
+    pbar = tqdm(total=int(len(desc_data) / 2))
+    desc_tokens = []
     with Pool(pool_process) as pool:
-        pool_result = pool.map_async(wrapper_tokenize_desc, desc_data)
-        desc_tokens = pool_result.get()
+        pool_result = pool.imap(wrapper_tokenize_desc, desc_data)
+        count = 0
+        for item in pool_result:
+            desc_tokens.append(item)
+            count += 1
+            if count % 2 == 0:
+                pbar.update()
+    pbar.close()
     # create fitted tfidf tokenizer for description docs
     print('    fitting')
     tfidf_desc = tfidf(desc_tokens, max_df=0.95, min_df=0.005)
@@ -98,9 +109,17 @@ if __name__ == '__main__':
     # multiprocessing : tokenize job title docs
     print('Fitting job title vectorizer')
     print('    Tokenizing title description')
+    pbar = tqdm(total=int(len(title_data) / 2))
+    title_tokens = []
     with Pool(pool_process) as pool:
-        pool_result = pool.map_async(wrapper_tokenize_title, title_data)
-        title_tokens = pool_result.get()
+        pool_result = pool.imap(wrapper_tokenize_title, title_data)
+        count = 0
+        for item in pool_result:
+            title_tokens.append(item)
+            count += 1
+            if count % 2 == 0:
+                pbar.update()
+    pbar.close()
     # create fitted tfidf tokenizer for title docs
     print('    fitting')
     tfidf_title = tfidf(title_tokens, max_df=0.95, min_df=0.005)
