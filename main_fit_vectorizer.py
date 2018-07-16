@@ -59,8 +59,8 @@ if __name__ == '__main__':
 
     # declare arguments
     # data20180620_test.json
-    doc_filename = './data/' + sys.argv[1]
-    out_filename = './Resource/' + sys.argv[2]
+    doc_filename = sys.argv[1]
+    out_filename = sys.argv[2]
     try:
         pool_process = sys.argv[3]
     except:
