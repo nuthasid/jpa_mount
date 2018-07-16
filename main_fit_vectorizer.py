@@ -62,15 +62,15 @@ if __name__ == '__main__':
     doc_filename = sys.argv[1]
     out_filename = sys.argv[2]
     try:
-        pool_process = sys.argv[3]
+        pool_process = int(sys.argv[3])
     except:
         pool_process = 8
     try:
-        title_ngram = sys.argv[4]
+        title_ngram = int(sys.argv[4])
     except:
         title_ngram = 4
     try:
-        desc_ngram = sys.argv[5]
+        desc_ngram = int(sys.argv[5])
     except:
         desc_ngram = 2
 
