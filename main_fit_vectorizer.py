@@ -92,7 +92,7 @@ if __name__ == '__main__':
     pbar = tqdm(total=int(len(desc_data)))
     desc_tokens = []
     with Pool(pool_process) as pool:
-        pool_result = pool.imap(wrapper_tokenize_desc, desc_data)
+        pool_result = pool.imap(wrapper_tokenize_desc, desc_data, chunksize=100)
         for item in pool_result:
             desc_tokens.append(item)
             pbar.update()
@@ -108,7 +108,7 @@ if __name__ == '__main__':
     pbar = tqdm(total=int(len(title_data)))
     title_tokens = []
     with Pool(pool_process) as pool:
-        pool_result = pool.imap(wrapper_tokenize_title, title_data)
+        pool_result = pool.imap(wrapper_tokenize_title, title_data, chunksize=100)
         for item in pool_result:
             title_tokens.append(item)
             pbar.update()
