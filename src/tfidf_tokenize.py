@@ -10,7 +10,7 @@ def tfidf_tokenize(token_texts, max_df=1.0, min_df=1):
     '''
     from sklearn.feature_extraction.text import TfidfVectorizer
 
-    tfidf_vectorize = TfidfVectorizer(simple_split, max_df=max_df, min_df=min_df)
+    tfidf_vectorize = TfidfVectorizer(tokenizer=simple_split, max_df=max_df, min_df=min_df)
     tfidf_vectorize.fit(token_texts)
     return tfidf_vectorize
 
