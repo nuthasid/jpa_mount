@@ -69,11 +69,11 @@ if __name__ == '__main__':
     try:
         title_ngram = int(sys.argv[4])
     except:
-        title_ngram = 4
+        title_ngram = 10
     try:
         desc_ngram = int(sys.argv[5])
     except:
-        desc_ngram = 2
+        desc_ngram = 5
 
     # data import
     print('Loading data from ' + doc_filename)
