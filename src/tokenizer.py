@@ -139,7 +139,7 @@ def cleanerFactory(charsetFilename, stop_enFilename=None, stop_thFilename=None, 
             return newstr
 
         import re
-        from nltk.stem.snowball import EnglishStemmer
+        from nltk.stem import WordNetLemmatizer
         pattern_new_sentence = re.compile('\.[0-9]+(\)|\.) ')
         pattern_th_in = re.compile(u'[^\u0e00-\u0e7f][\u0e00-\u0e7f]')
         pattern_num_bullet = re.compile('^[0-9]+(\)|\.)*$')
@@ -150,7 +150,7 @@ def cleanerFactory(charsetFilename, stop_enFilename=None, stop_thFilename=None, 
         pattern_thai_name = re.compile(u'\u0e04\u0e38\u0e13\s*[\u0e00-\u0e7f]+\s+')
         pattern_prefix_garbage = re.compile('^\-|^\||^\.|^\#{1,2}|^(\-\|)|^(\+\|)|^(\#\|)^(\.\|)')
         charset = loadCharset(charsetFilename)
-        stemmer = EnglishStemmer()
+        stemmer = WordNetLemmatizer()
 
         stopwords_EN = getwords(stop_enFilename) if stop_enFilename else set()
         stopwords_TH = getwords(stop_thFilename) if stop_thFilename else set()
@@ -168,7 +168,7 @@ def cleanerFactory(charsetFilename, stop_enFilename=None, stop_thFilename=None, 
         text = remove_thai_stop(text, stopwords_TH)
         text_split = text.split(' ')
         text_split = [item for item in text_split[:] if item not in stopwords_EN and not pattern_num_bullet.search(item)]
-        text_split = [stemmer.stem(item) if pattern_eng_token.search(item) and item not in keywords else item for item in text_split[:]]
+        text_split = [stemmer.lemmatize(item) if pattern_eng_token.search(item) and item not in keywords else item for item in text_split[:]]
         text = '|'.join(text_split)
         return text
 
