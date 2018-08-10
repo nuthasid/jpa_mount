@@ -17,11 +17,11 @@ from multiprocessing import Pool
 
 
 def wrapper_tokenize_desc(text):
-    return tt.tokenize(text, tltk_tokenize, desc_ngram, './Dict/charset', cleaner)
+    return tt.tokenize(text, tltk_tokenize, desc_ngram, cleaner)
 
 
 def wrapper_tokenize_title(text):
-    return tt.tokenize(text, tltk_tokenize, title_ngram, './Dict/charset', cleaner)
+    return tt.tokenize(text, tltk_tokenize, title_ngram, cleaner)
 
 
 def tltk_tokenize(text):
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     pbar = tqdm(total=int(len(desc_data)))
     desc_tokens = []
     with Pool(pool_process) as pool:
-        pool_result = pool.imap(wrapper_tokenize_desc, desc_data, chunksize=100)
+        pool_result = pool.imap(wrapper_tokenize_desc, desc_data, chunksize=30)
         for item in pool_result:
             desc_tokens.append(item)
             pbar.update()

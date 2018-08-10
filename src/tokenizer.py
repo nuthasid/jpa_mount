@@ -1,4 +1,4 @@
-def tokenize(text, THTokenizer, ngrams, charsetFilename, cleaner, stop_enFilename=None, stop_thFilename=None, keywordsFilename=None):
+def tokenize(text, THTokenizer, ngrams, cleaner, charsetFilename=None, stop_enFilename=None, stop_thFilename=None, keywordsFilename=None):
     '''Input string of jobads, return string of tokens that are n-gramed and tokenized'''
     import re
     pattern_sentence_collide = re.compile('[a-z][A-Z]]')
