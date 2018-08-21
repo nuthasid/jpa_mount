@@ -58,6 +58,8 @@ if __name__ == '__main__':
     import pickle
     from tqdm import tqdm
     from src.Vectorizer import TFIDF_Vectorizer
+    import warnings
+    warnings.filterwarnings('ignore')
 
     # declare arguments
     # data20180620_test.json
@@ -75,6 +77,7 @@ if __name__ == '__main__':
         desc_ngram = int(sys.argv[5])
     except:
         desc_ngram = 5
+    chunksize = 100
 
     # data import
     print('Loading data from ' + doc_filename)
@@ -90,10 +93,10 @@ if __name__ == '__main__':
     print('Fitting job description vectorizer')
     print('    Tokenizing job description')
 
-    pbar = tqdm(total=int(len(desc_data)))
+    pbar = tqdm(total=int(len(desc_data)/chunksize) + (len(desc_data) % chunksize > 0))
     desc_tokens = []
     with Pool(pool_process) as pool:
-        pool_result = pool.imap(wrapper_tokenize_desc, desc_data, chunksize=30)
+        pool_result = pool.imap(wrapper_tokenize_desc, desc_data, chunksize=chunksize)
         for item in pool_result:
             desc_tokens.append(item)
             pbar.update()
