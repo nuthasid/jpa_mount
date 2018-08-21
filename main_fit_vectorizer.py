@@ -93,13 +93,13 @@ if __name__ == '__main__':
     print('Fitting job description vectorizer')
     print('    Tokenizing job description')
 
-    pbar = tqdm(total=int(len(desc_data)/chunksize) + (len(desc_data) % chunksize > 0))
+    pbar = tqdm(total=int(len(desc_data)))
     desc_tokens = []
     with Pool(pool_process) as pool:
         pool_result = pool.imap(wrapper_tokenize_desc, desc_data, chunksize=chunksize)
         for item in pool_result:
             desc_tokens.append(item)
-            pbar.update()
+            pbar.update(chunksize)
     pbar.close()
     # create fitted tfidf tokenizer for description docs
     print('    fitting')
