@@ -57,6 +57,7 @@ if __name__ == '__main__':
     import sys
     import pickle
     from tqdm import tqdm
+    from src.Vectorizer import TFIDF_Vectorizer
 
     # declare arguments
     # data20180620_test.json
