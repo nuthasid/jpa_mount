@@ -99,7 +99,7 @@ if __name__ == '__main__':
         pool_result = pool.imap(wrapper_tokenize_desc, desc_data, chunksize=chunksize)
         for item in pool_result:
             desc_tokens.append(item)
-            pbar.update(chunksize)
+            pbar.update()
     pbar.close()
     # create fitted tfidf tokenizer for description docs
     print('    fitting')
