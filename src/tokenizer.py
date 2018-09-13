@@ -14,7 +14,7 @@ def tokenize(text, THTokenizer, ngrams, cleaner, charsetFilename=None, stop_enFi
     return tokensString
 
 
-def firstPass(textList, pattern, keyword = []):
+def firstPass(textList, pattern, keyword=[]):
     '''Split runon EN sentences'''
     first_pass = []
     for i, item in enumerate(textList):
