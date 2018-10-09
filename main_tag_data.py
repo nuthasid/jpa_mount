@@ -1,14 +1,14 @@
-'''
+"""
     Read pandas.DataFrame from pickle file and display each item user can key new tag
     Input:  path to pickle file
-            path to new DataFrame file
+            path to new DataFrame file (ret=path_to_file)
             default tag name (def=tag_name)
             positive tag (pos=tag_name)
             negative tag (neg=tag_name)
             [optional] filter (filter=tag)
             [optional] range (range=begin:end)
             [optional] sampling (sampling=sample_size(int or float))
-'''
+"""
 
 if __name__ == '__main__':
 
@@ -18,11 +18,13 @@ if __name__ == '__main__':
     # parse arguments
     argvs = sys.argv[1:]
     data_file = argvs.pop(0)
-    ret_file = argvs.pop(0)
+    ret_file = data_file[:data_file.find('.')] + '.tagged'
     kwargs = {'filter': None, 'range': {'begin': None, 'End': None}}
     tags = {'def': None, '-': None, '+': None}
     sampling = 1.0
     for index in reversed(range(len(argvs))):
+        if argvs[index].find('ret') != -1:
+            ret_file = argvs[index].split('=')[1]
         if argvs[index].find('filter') != -1:
             kwargs['filter'] = argvs[index].split('=')[1]
         if argvs[index].find('range') != -1:
@@ -80,6 +82,11 @@ if __name__ == '__main__':
             elif inp in ['-', '+']:
                 newDataSet.at[index, 'tag'] = tags[inp]
                 print('Entry tagged as ' + tags[inp])
+                print(newDataSet.iloc[index])
+                tag_recorded = True
+            elif inp == '.':
+                newDataSet.at[index, 'tag'] = 'not sure'
+                print('Entry tagged as "not sure".')
                 print(newDataSet.iloc[index])
                 tag_recorded = True
             else:

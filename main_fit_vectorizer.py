@@ -1,4 +1,4 @@
-'''
+""""
     Create an object of fitted tfidf vectorizer and dump into a pickle file.
     :argument
         doc file name: A file containing documents, each of which is stored in json format with the following keys,
@@ -7,7 +7,7 @@
         number of pool processes.
         number of n-gram for title tokenizer - default = 4.
         number of n-gram for description tokenizer - default = 2.
-'''
+"""
 
 import src.dataimporter as di
 import src.tokenizer as tt
@@ -17,11 +17,11 @@ from multiprocessing import Pool
 
 
 def wrapper_tokenize_desc(text):
-    return tt.tokenize(text, tltk_tokenize, desc_ngram, cleaner)
+    return tt.tokenize(text, cleaner, tltk_tokenize, desc_ngram)
 
 
 def wrapper_tokenize_title(text):
-    return tt.tokenize(text, tltk_tokenize, title_ngram, cleaner)
+    return tt.tokenize(text, cleaner, tltk_tokenize, title_ngram)
 
 
 def tltk_tokenize(text):
@@ -30,7 +30,7 @@ def tltk_tokenize(text):
 
 
 class TFIDF_Vectorizer:
-    '''
+    """
     Create an object of tfidf vectorizer for both job title docs and job description doc.
     Attribute:
         vectorize_title: tfidf vectorizer for job title.
@@ -38,7 +38,7 @@ class TFIDF_Vectorizer:
         title_para: parameters of job title vectorizer - {"max_df":max_df, "min_df":min_df}.
         desc_para: parameters of job description vectorizer - {"max_df":max_df, "min_df":min_df}.
         filename: name of the file into which the object is to be dumped.
-    '''
+    """
 
     def __init__(self, vectitle, vecdesc, filename):
         self.vectorize_title = vectitle
@@ -87,7 +87,7 @@ if __name__ == '__main__':
     print('Successfully load data from ' + doc_filename + '\n')
 
     # multiprocessing : tokenize
-    cleaner = tt.cleanerFactory("./Resource/charset")
+    cleaner = tt.cleaner_generator('./Resource/charset')
 
     # multiprocessing : tokenize job description docs
     print('Fitting job description vectorizer')
