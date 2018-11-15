@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1730207-dba5-43c3-9315-540710f3a462" name="Default" comment="replace english snowball stemmer with WordNet lemmarizer">
-      <change beforePath="$PROJECT_DIR$/.idea/JobPostAnalysis.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notebook/Classifiter.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebook/Classifiter.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notebook/Predict.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Notebook/Predict.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/data20180620_test.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_fit_vectorizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_fit_vectorizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataimporter.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataimporter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tokenizer.py" afterDir="false" />
-    </list>
+    <list default="true" id="b1730207-dba5-43c3-9315-540710f3a462" name="Default" comment="add notebook" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,13 +51,22 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1755287472">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_fit_vectorizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
+            <state relative-caret-position="204">
               <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#517#546#0" expanded="true" />
@@ -93,7 +92,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tfidf_tokenize.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
+            <state relative-caret-position="272">
               <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
@@ -102,7 +101,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dataimporter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
+            <state relative-caret-position="561">
               <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
             </state>
           </provider>
@@ -111,7 +110,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tokenizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="255">
               <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
@@ -120,7 +119,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_count_df.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2482">
+            <state relative-caret-position="1190">
               <caret line="73" column="69" selection-start-line="73" selection-start-column="69" selection-end-line="73" selection-end-column="69" />
               <folding>
                 <element signature="e#621#650#0" expanded="true" />
@@ -245,12 +244,12 @@
       <option name="project" value="LOCAL" />
       <updated>1539079223103</updated>
     </task>
-    <task id="LOCAL-00002" summary="add requirement">
-      <created>1531708433166</created>
+    <task id="LOCAL-00002" summary="add notebook">
+      <created>1542283832275</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1531708433167</updated>
+      <updated>1542283832276</updated>
     </task>
     <task id="LOCAL-00003" summary="convert input arguments to int">
       <created>1531710393415</created>
@@ -364,14 +363,13 @@
       <option name="project" value="LOCAL" />
       <updated>1536832006233</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="37" width="3840" height="2123" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26039445" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2600473" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -381,7 +379,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.26049516" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2597504" />
       <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.49920043" weight="0.27124184" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32992464" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007996" side_tool="true" weight="0.25523913" />
@@ -394,6 +392,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add notebook" />
+    <option name="LAST_COMMIT_MESSAGE" value="add notebook" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main_rule_base.py">
@@ -427,7 +429,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main_fit_vectorizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
+        <state relative-caret-position="204">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#517#546#0" expanded="true" />
@@ -447,14 +449,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tfidf_tokenize.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
+        <state relative-caret-position="272">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dataimporter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main_count_df.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2482">
+        <state relative-caret-position="1190">
           <caret line="73" column="69" selection-start-line="73" selection-start-column="69" selection-end-line="73" selection-end-column="69" />
           <folding>
             <element signature="e#621#650#0" expanded="true" />
@@ -462,16 +471,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dataimporter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tokenizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="255">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
