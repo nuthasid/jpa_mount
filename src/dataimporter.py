@@ -28,7 +28,7 @@ class DataController:
         tokenize documents. DataController contain several methods to maintain and expand dataset.
     """
 
-    def __init__(self, documents='null', data_format='null', num_pool=30, chunk=100, add_column=None):
+    def __init__(self, documents='null', data_format='null', num_pool=30, chunk=10, add_column=None):
         """
         Initialize DataController object.
         :param documents: (default='null') Documents source to be loaded into the object. It can be (1) path to a text
@@ -65,12 +65,9 @@ class DataController:
 
         if data_format == 'f_json':  # if user specify json data format
             print('loading data')
-            loaded_data = []
             # load and parse each json formatted documents and store into (list)loaded_data.
-            with open(documents, 'r', encoding='utf-8') as fin:
-                for line in fin:
-                    loaded_data.append(json.loads(line, encoding='utf-8'))
-            loaded_data = tuple(loaded_data)  # make loaded data immutable.
+            with open(documents, 'rt', encoding='utf-8') as fin:
+                loaded_data = json.load(fin)
 
             docs_tokens = []
             print('pre-processing')
@@ -287,11 +284,11 @@ class DataController:
             ret = tltk.segment(text).replace('<u/>', '').replace('<s/>', '').split('|')
             return ret
 
-        cleaner = tokenizer.cleanerFactory('../Resource/charset')
+        cleaner = tokenizer.cleaner_generator('../Resource/charset')
         title = doc_dict['title']
         desc = doc_dict['desc']
-        title_seg = tokenizer.tokenize(title, tltk_tokenize, 5, cleaner)
-        desc_seg = tokenizer.tokenize(desc, tltk_tokenize, 5, cleaner)
+        title_seg = tokenizer.tokenize(title, cleaner, tltk_tokenize, 5)
+        desc_seg = tokenizer.tokenize(desc, cleaner, tltk_tokenize, 5)
         tag = doc_dict['tag']
         in_str = str(time.time()) + title + desc
         job_id = hashlib.md5(bytes(in_str, 'utf-8')).hexdigest()

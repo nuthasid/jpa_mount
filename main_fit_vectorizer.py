@@ -59,6 +59,7 @@ if __name__ == '__main__':
     from tqdm import tqdm
     from src.Vectorizer import TFIDF_Vectorizer
     import warnings
+    import pandas
     warnings.filterwarnings('ignore')
 
     # declare arguments
@@ -81,7 +82,8 @@ if __name__ == '__main__':
 
     # data import
     print('Loading data from ' + doc_filename)
-    data_df = di.dataImporter(doc_filename)
+    # data_df = di.dataImporter(doc_filename)
+    data_df = pandas.read_json(doc_filename, encoding='utf-8')
     desc_data = data_df['desc']
     title_data = data_df['title']
     print('Successfully load data from ' + doc_filename + '\n')
